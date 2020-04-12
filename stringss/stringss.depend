@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1586219682 source:d:\sure\stringss\src\practica1.cpp
+	"practica1.h"
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstring>
+
+1586185536 d:\sure\stringss\include\practica1.h
+	<string>
+	<fstream>
+	<stdlib.h>
+	<cstring>
+
+1586219517 source:d:\sure\stringss\main.cpp
+	<iostream>
+	"practica1.h"
+	<string>
+	<fstream>
+	<stdlib.h>
+	<cstring>
+
