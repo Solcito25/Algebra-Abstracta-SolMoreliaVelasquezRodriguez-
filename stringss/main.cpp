@@ -97,7 +97,7 @@ int main()
         ///  mente, el programa debe mostrar lo siguiente:
 
         ///  Felicidades!!! Adivino mi palabra. Desea jugar otra vez? si/no*/
-    str.ahorcado("si");
+    //str.ahorcado("si");
 
     ///18.19Escriba un programa que inserte los caracteres "******" en la mitad exacta de un objeto string*/
     //cout<<str.InserCarcte("Sol")<<endl;
@@ -115,6 +115,9 @@ int main()
 swap en su solución.*/
     /*string frase[]={"con","algebra","programacion"};
     str.Ordenar(frase,1,3);*/
+
+    int arr[5]={4,6,8,3,5};
+    str.Ordena(arr,1,5);
     return 0;
 
 }

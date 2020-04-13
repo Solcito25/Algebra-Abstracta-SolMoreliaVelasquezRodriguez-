@@ -358,5 +358,30 @@ cout<<palabra[i]<<endl;
 }
 
 
+void practica1::OrdenaSeleccion(int palabra[],int tam,bool(*compara)(string, string)){
+    int menorOmayor;
+        for(int i=0;i<tam-1;i++){
+            menorOmayor=i;
+            for(int index=i+1;index<tam;index++){
+                string menor=to_string(palabra[menorOmayor]);
+                string indexs=to_string(palabra[index]);
+                if(!(*compara)(menor,indexs)){
+                    menorOmayor=index;
+                }}
+                swap(palabra[menorOmayor],palabra[i]);
+            }
+
+}
+
+void practica1::Ordena(int palabra[],int orden,int tam){
+if(orden==1)
+    OrdenaSeleccion(palabra,tam,ascendente);
+else
+    OrdenaSeleccion(palabra,tam,descendente);
+for(int i=0;i<tam;i++)
+cout<<palabra[i]<<endl;
 
 
+
+
+}

@@ -34,7 +34,9 @@ class practica1
         void Tokens(string frase);
         void Reverse(string frase);
         void Ordenar(string palabra[], int orden, int tam);
+        void Ordena(int palabra[],int orden,int tam);
         void OrdenarSeleccion(string palabra[],const int tam,bool(*compara)(string, string));
+        void OrdenaSeleccion(int palabra[],int tam,bool(*compara)(string, string));
         static bool ascendente(string a,string b);
         static bool descendente(string a,string b);
     protected:
