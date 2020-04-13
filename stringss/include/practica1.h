@@ -22,7 +22,7 @@ class practica1
         void PrintLetra(string palabra);
         string UnirMitad(string palabra, string adjuntar);
         string Reemplazar(string frase,string tochange,string change);
-        void LexiMayor(string a, string b);
+        string LexiMayor(string a, string b);
         void Escribirfiles(int n);
         int Sumatoria();
         string rot13(string);

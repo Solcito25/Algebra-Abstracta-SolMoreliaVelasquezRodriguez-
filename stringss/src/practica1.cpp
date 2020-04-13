@@ -115,14 +115,12 @@ string practica1::Reemplazar(string frase,string tochange,string change){
 return frase;
 }
 /*11.Dadas dos palabras, imprimir la que es lexicográficamente mayor.*/
-void practica1::LexiMayor(string a, string b){
-     if (a>b){
-        cout<<a<<" es lexicograficamente mayor"<<endl;
-     }
-     else if(b>a){
-        cout<<b<<" es lexicograficamente mayor"<<endl;
-     }
-     else cout<<a<<" y "<<b<< " son iguales"<<endl;
+string practica1::LexiMayor(string a, string b){
+     int resultado=a.compare(b);
+     if(resultado>0)
+        return a;
+     else
+        return b;
      }
 /*12.Crear una función que reciba un número N (N va de 1 a 10),y que escriba N números con valores que van
 de 1 a 1000 en un archivo llamado “numeros.txt”.*/
@@ -160,17 +158,17 @@ del cifrado de clave simétrica. Con este tipo de cifrado, tanto el que cifra co
 /*a) Escriba un programa que cifre un mensaje usando rot13.*/
 string practica1::rot13(string palabra){
     for(int i=0;i<palabra.size();i++){
-    if(palabra[i]>=65&&palabra[i]<=90){
-        palabra[i]+=13;
-       if (palabra[i]>90)
-        {palabra[i]=(palabra[i]-90)+65;}
+    if(palabra.at(i)>=65&&palabra.at(i)<=90){
+        palabra.at(i)+=13;
+       if (palabra.at(i)>90)
+            palabra.at(i)-=13;
 
     }
-    else if (palabra[i]>=97&&palabra[i]<=122){
-        if(palabra[i]<110)
-            palabra[i]+=13;
+    else if (palabra.at(i)>=97&&palabra.at(i)<=122){
+        if(palabra.at(i)<110)
+            palabra.at(i)+=13;
         else{
-            palabra[i]-=13;
+            palabra.at(i)-=13;
        }
     }
     }
@@ -179,18 +177,18 @@ string practica1::rot13(string palabra){
 /*b) Escriba un mensaje que descifre el mensaje codiﬁ cado usando 13 como la clave.*/
 string practica1::drot13(string palabra){
     for(int i=0;i<palabra.size();i++){
-        if(palabra[i]>=65&&palabra[i]<=90){
-            if(palabra[i]>=78)
-                palabra[i]-=13;
+        if(palabra.at(i)>=65&&palabra.at(i)<=90){
+            if(palabra.at(i)>=78)
+                palabra.at(i)-=13;
             else{
-                palabra[i]+=13;
+                palabra.at(i)+=13;
         }
         }
-        else if (palabra[i]>=97&&palabra[i]<=122){
-            if(palabra[i]>=110)
-                palabra[i]-=13;
+        else if (palabra.at(i)>=97&&palabra.at(i)<=122){
+            if(palabra.at(i)>=110)
+                palabra.at(i)-=13;
             else{
-                palabra[i]+=13;
+                palabra.at(i)+=13;
            }
         }
     }
@@ -240,7 +238,7 @@ void practica1::ahorcado(string continuar){
     bool estado=true;
     while(estado==true && continuar=="si"){
         int a=rand()%9+0;
-        string palabra[]={"abstracta","algebra","hola","bien","opcion","cuaderno","hoja","ahorcado","intentos","iniciar"};
+        string palabra[]={"abstractas","aalgebraaa","camarones","bienvenidos","opciones","cuaderno","hojarasca","antiguedad","inicializacion","improvisacion"};
         int b=palabra[a].size();
         string cifrada(b,'X');
         string temp;
@@ -254,7 +252,7 @@ void practica1::ahorcado(string continuar){
         while(i<=7&&continuar!="no"){
             cout<<'\n'<<"Ingrese la letra: "<<endl;
             cin>>intento;
-            temp=reempAhorcado(palabra[b],cifrada,intento);
+            temp=reempAhorcado(palabra[a],cifrada,intento);
             if(temp==cifrada){
                 cout<<temp<<endl;
                 cout<<"no es"<<endl;
@@ -263,23 +261,22 @@ void practica1::ahorcado(string continuar){
                    }
                    j++;
             }
-            else if(temp==palabra[b]){
+            else if(temp==palabra[a]){
                 cout<<palabra[b]<<endl;
                 cout<<"Intentos: "<<i<<endl;
                 cout<<"Fallados: "<<j-1<<endl;
                 cout<<"Felicidades!!! Adivino mi palabra. Desea jugar otra vez? si/no"<<endl;
                 string cont;
                 cin>>cont;
-                if(cont=="no")
+                if(cont=="no"){
                     continuar=cont;
-                    estado=false;
+                    estado=false;}
+                else
+                    ahorcado(cont);
                 }
             else{
                 cout<<temp<<endl;
                 cout<<"si es"<<endl;
-
-                //for(int i=1;i<=j;i++){
-                  //  cout<<humano[i];
                     }
         i++;
         cifrada=temp;
