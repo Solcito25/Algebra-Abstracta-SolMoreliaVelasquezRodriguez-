@@ -1,9 +1,10 @@
 #include "cesar.h"
 #include <string>
+#include <iostream>
 using namespace std;
 cesar::cesar()
 {
-    clave=3;
+    clave=15;
     alfabeto="abcdefghijklmnopqrstuvwxyz";
 }
 
@@ -14,14 +15,16 @@ cesar::~cesar()
 
 string cesar:: cifrado(string mensaje){
     string mensajecifrado;
+    string substclave=alfabeto.substr(0,clave);
+    alfabeto+=substclave;
     for(int i=0; i<mensaje.size();i++){
-        int a=alfabeto.find(mensaje.at(i))+clave;
+        size_t a=alfabeto.find(mensaje.at(i));
         if(a!=string::npos){
-        if(a>alfabeto.size())
-            a-=alfabeto.size();
-        mensajecifrado+=alfabeto.at(a);
-
-    }
+            a+=clave;
+            mensajecifrado+=alfabeto.at(a);
+        }
+        else
+            mensajecifrado+=" ";
     }
     return mensajecifrado;
 }
@@ -29,14 +32,16 @@ string cesar:: cifrado(string mensaje){
 
 string cesar::descifrado(string mensajeCifrado){
     string mensajeDescifrado;
+    string substclave=alfabeto.substr(0,clave);
+    alfabeto+=substclave;
     for(int i=0; i<mensajeCifrado.size();i++){
-        int a=alfabeto.find(mensajeCifrado.at(i))-clave;
+        size_t a=alfabeto.rfind(mensajeCifrado.at(i));
         if(a!=string::npos){
-        if(a<0)
-            a+=alfabeto.size();
+            a-=clave;
         mensajeDescifrado+=alfabeto.at(a);
-
-    }
+        }
+        else
+            mensajeDescifrado+=" ";
     }
     return mensajeDescifrado;
 }
