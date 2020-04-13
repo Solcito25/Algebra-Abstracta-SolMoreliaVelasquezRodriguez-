@@ -8,8 +8,7 @@ int main()
     string mensaje;
     cout<<"Ingrese mensaje a cifrar"<<endl;
     getline(cin,mensaje);
-    cesar emisor;
-    cout<<emisor.cifrado(mensaje)<<endl;
-    cesar receptor;
-    cout<<receptor.descifrado(emisor.cifrado(mensaje))<<endl;
+    cesar emisor,receptor;
+    emisor.cifrado(mensaje);
+    receptor.descifrado(emisor.cifrado(mensaje));
 }
