@@ -47,8 +47,8 @@ La diferencia es que la función capacity() retorna el tamaño actual del espaci
 
 string practica1::changeMayMin(string begi){
 for(int i=0;i<begi.size();i++){
-    if(begi[i]>=65&&begi[i]<=90)begi[i]+=32;
-    else if (begi[i]>=97&&begi[i]<=122)begi[i]-=32;
+    if(begi.at(i)>=65&&begi.at(i)<=90)begi.at(i)+=32;
+    else if (begi.at(i)>=97&&begi.at(i)<=122)begi.at(i)-=32;
 }
 return begi;
 }
@@ -82,19 +82,13 @@ void practica1:: Desapruebo(){
 /*7.Recibir dos strings por entrada estándar, una frase y una palabra. Contar cuántas veces aparece la palabra en la frase.*/
 
 int practica1::CantPalabras(string frase,string palabra){
-    int a=frase.size()-1;
     int i=0;
-    while(a){
-        a=frase.rfind(palabra,a);
-    if(a==string::npos) {
-        break;
+    int a=frase.find(palabra);
+    while(a!=string::npos){
+        i++;
+        a=frase.find(palabra,a+1);
     }
-    frase.erase(a);
-    i++;
-    }
-return i;
-}
-
+return i;}
 /*8.Recibir un string de longitud N e imprimir cada letra del string en una nueva línea usando iteradores.*/
 void practica1::PrintLetra(string palabra){
     string::const_iterator iterador1=palabra.begin();
@@ -146,20 +140,18 @@ void practica1 ::Escribirfiles(int n){
 
 /*13.	Leer los números en el archivo “numeros.txt” de la pregunta 10 e imprimir la sumatoria.*/
 int practica1 ::Sumatoria(){
-    int num;
-    string sum;
+    int num,sum,suma=0;
+    string add;
     ifstream datos("numeros.txt");
     if(datos.fail()){
         cout<<"Texto entrada ""numeros.txt"" no existe"<<endl;
     }
     else{
-        while(!datos.eof()){
-            getline(datos,sum);
-            num=stoi(sum);
-            num=num+num;
+        while(getline(datos,add)){
+            sum=stoi(add);
+            suma+=sum;
         }
-    //num=num-num;
-    cout<<num<<endl;
+    cout<<suma<<endl;
 }
 }
 /*18.7 (Cifrado simple) Cierta información en Internet se puede cifrar con un algoritmo simple conocido como “rot13”, el
