@@ -4,7 +4,7 @@
 using namespace std;
 cesar::cesar()
 {
-    clave=15;
+    clave=25;
     alfabeto="abcdefghijklmnopqrstuvwxyz";
 }
 
@@ -15,12 +15,14 @@ cesar::~cesar()
 
 string cesar:: cifrado(string mensaje){
     string mensajecifrado;
-    string substclave=alfabeto.substr(0,clave);
-    alfabeto+=substclave;
     for(int i=0; i<mensaje.size();i++){
-        size_t a=alfabeto.find(mensaje.at(i));
+        unsigned int a=alfabeto.find(mensaje.at(i));
         if(a!=string::npos){
-            a+=clave;
+            int comp=alfabeto.size()-clave;
+            if(a>=comp)
+               a=a-comp;
+            else
+                a+=clave;
             mensajecifrado+=alfabeto.at(a);
         }
         else
@@ -32,11 +34,13 @@ string cesar:: cifrado(string mensaje){
 
 string cesar::descifrado(string mensajeCifrado){
     string mensajeDescifrado;
-    string substclave=alfabeto.substr(0,clave);
-    alfabeto+=substclave;
     for(int i=0; i<mensajeCifrado.size();i++){
-        size_t a=alfabeto.rfind(mensajeCifrado.at(i));
+        unsigned int a=alfabeto.find(mensajeCifrado.at(i));
         if(a!=string::npos){
+            if(a<clave) {
+                a=a+alfabeto.size()-clave;
+            }
+            else
             a-=clave;
         mensajeDescifrado+=alfabeto.at(a);
         }
