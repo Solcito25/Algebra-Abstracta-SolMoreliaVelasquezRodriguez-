@@ -67,10 +67,10 @@ int main()
 
     /*12.Crear una función que reciba un número N (N va de 1 a 10),y que escriba N números con valores que van
          de 1 a 1000 en un archivo llamado “numeros.txt”.*/
-    //str.Escribirfiles(5);
+    str.Escribirfiles(5);
 
     /*13.	Leer los números en el archivo “numeros.txt” de la pregunta 10 e imprimir la sumatoria.*/
-         //str.Sumatoria();
+         str.Sumatoria();
     /*18.7 (Cifrado simple) Cierta información en Internet se puede cifrar con un algoritmo simple conocido como “rot13”, el
             cual rota cada carácter 13 posiciones en el alfabeto. Así, 'a' corresponde a 'n', y 'x' corresponde a 'k'. rot13 es un ejemplo
             el cifrado de clave simétrica. Con este tipo de cifrado, tanto el que cifra como el que descifra utilizan la misma clave.*/
@@ -97,7 +97,7 @@ int main()
         mente, el programa debe mostrar lo siguiente:
 
         Felicidades!!! Adivino mi palabra. Desea jugar otra vez? si/no*/
-    str.ahorcado("si");
+    //str.ahorcado("si");
 
     /*18.19Escriba un programa que inserte los caracteres "******" en la mitad exacta de un objeto string*/
     //cout<<str.InserCarcte("Sol")<<endl;

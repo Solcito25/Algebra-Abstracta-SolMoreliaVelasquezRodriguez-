@@ -138,7 +138,8 @@ void practica1 ::Escribirfiles(int n){
     file.open("numeros.txt");
     for(int i=0;i<n;i++){
         int a=rand()%1000+1;
-        file<<a<<endl;
+        string temp=to_string(a);
+        file<<temp<<endl;
     }
     file.close();
 }
@@ -146,18 +147,19 @@ void practica1 ::Escribirfiles(int n){
 /*13.	Leer los números en el archivo “numeros.txt” de la pregunta 10 e imprimir la sumatoria.*/
 int practica1 ::Sumatoria(){
     int num;
-    int suma=0;
+    string sum;
     ifstream datos("numeros.txt");
     if(datos.fail()){
         cout<<"Texto entrada ""numeros.txt"" no existe"<<endl;
     }
     else{
         while(!datos.eof()){
-            datos>>num;
-            suma =suma+num;
+            getline(datos,sum);
+            num=stoi(sum);
+            num=num+num;
         }
-    suma=suma-num;
-    cout<<suma<<endl;
+    //num=num-num;
+    cout<<num<<endl;
 }
 }
 /*18.7 (Cifrado simple) Cierta información en Internet se puede cifrar con un algoritmo simple conocido como “rot13”, el

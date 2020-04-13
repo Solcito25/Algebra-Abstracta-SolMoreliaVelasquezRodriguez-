@@ -21,3 +21,25 @@
 	<stdlib.h>
 	<cstring>
 
+1586736563 source:d:\algebra\algebra\stringss\main.cpp
+	<iostream>
+	"practica1.h"
+	<string>
+	<fstream>
+	<stdlib.h>
+	<cstring>
+
+1586185536 d:\algebra\algebra\stringss\include\practica1.h
+	<string>
+	<fstream>
+	<stdlib.h>
+	<cstring>
+
+1586736574 source:d:\algebra\algebra\stringss\src\practica1.cpp
+	"practica1.h"
+	<string>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstring>
+

@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1586734296 source:d:\algebra\algebra\cesar\src\cesar.cpp
+	"cesar.h"
+	<string>
+
+1586731110 d:\algebra\algebra\cesar\include\cesar.h
+	<string>
+
+1586731110 source:d:\algebra\algebra\cesar\main.cpp
+	<iostream>
+	<string>
+	"cesar.h"
+
