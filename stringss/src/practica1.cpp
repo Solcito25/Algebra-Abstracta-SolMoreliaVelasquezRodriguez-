@@ -135,7 +135,7 @@ void practica1 ::Escribirfiles(int n){
     }
     file.close();
 }
-
+//Pidio que auemntara funciones string
 /*13.	Leer los números en el archivo “numeros.txt” de la pregunta 10 e imprimir la sumatoria.*/
 int practica1 ::Sumatoria(){
     int num,sum,suma=0;
@@ -356,7 +356,7 @@ for(int i=0;i<tam;i++)
 cout<<palabra[i]<<endl;
 
 }
-
+///Pidio que aumentara la conversion de enteros a string
 
 void practica1::OrdenaSeleccion(int palabra[],int tam,bool(*compara)(string, string)){
     int menorOmayor;
