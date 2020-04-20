@@ -1,14 +1,16 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 #include "viginere.h"
+#include "kasiski.h"
 using namespace std;
 
 int main()
 {
 
 
-    string mensaje;
+    /*string mensaje;
     string aux;
     ifstream datos("poema.txt");
     if(datos.fail()){
@@ -40,7 +42,9 @@ int main()
     cout<<temp<<endl;
     string g=recibe.descifrado(temp);
     cout<<recibe.quitarAqui(g)<<endl;
-    //cout<<emite.cifrado2("abstracta");
-
-
+    cout<<emite.cifrado2("abstracta");
+*/
+vector <int> A={42,141,39};
+kasiski pro;
+cout<<pro.mcd(A)<<endl;
 }
