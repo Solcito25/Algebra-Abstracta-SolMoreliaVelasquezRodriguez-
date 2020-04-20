@@ -16,12 +16,15 @@ int main()
        r=r*(-1);
        q=q-1;
        int temp =(q*n)+r;
-       cout<<temp;
-       while(temp!=a)
+       //cout<<temp;
+       while(temp!=a){
         r++;
+        temp=(q*n)+r;
+       }
     }
 
 
-    cout<<r<<endl<<q<<endl;
+    cout<<"residuo: "<<r<<endl;
+    cout<<"cociente: "<<q<<endl;
     return 0;
 }
