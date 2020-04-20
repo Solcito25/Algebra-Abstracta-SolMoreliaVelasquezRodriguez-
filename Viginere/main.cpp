@@ -9,8 +9,8 @@ using namespace std;
 int main()
 {
 
-
-    /*string mensaje;
+/*
+    string mensaje;
     string aux;
     ifstream datos("poema.txt");
     if(datos.fail()){
@@ -22,7 +22,7 @@ int main()
             aux+='\n';
         }
 
-
+/*
 
     viginere emisor;
     string cifrado=emisor.cifrado(aux);
@@ -44,7 +44,22 @@ int main()
     cout<<recibe.quitarAqui(g)<<endl;
     cout<<emite.cifrado2("abstracta");
 */
-vector <int> A={42,141,39};
+/*vector <int> A={42,141,39};
 kasiski pro;
-cout<<pro.mcd(A)<<endl;
+cout<<pro.mcd(A)<<endl;*/
+
+
+string ascii="ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ !\"#$%&'()*+'-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_´abcdefghijklmnopqrstuvwxyz{|}~Ç";
+cout<<ascii.size()<<ascii.at(34)<<endl;
+viginere emisor(ascii);
+string mensaje="zeta";
+string cif=emisor.cifrado(mensaje);
+cout<<cif<<endl;
+cout<<emisor.descifrado(cif)<<endl;
+
+
+
+
 }
+
+

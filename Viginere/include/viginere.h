@@ -6,6 +6,7 @@ class viginere
 {
     public:
         viginere();
+        viginere(string alfabeto);
         virtual ~viginere();
         string alfabeto="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
         string cifrado(string mensaje);
@@ -16,7 +17,7 @@ class viginere
     protected:
 
     private:
-        string clave="Pablo Neruda";
+        string clave=" hola";
 };
 
 #endif // VIGINERE_H

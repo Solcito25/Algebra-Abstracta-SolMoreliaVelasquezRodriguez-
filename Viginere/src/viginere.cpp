@@ -7,7 +7,11 @@ viginere::viginere()
 
     //string clave="Pablo Neruda";
 }
-
+viginere::viginere(string alfabeto)
+{
+    alfabeto=alfabeto;
+    //string clave="Pablo Neruda";
+}
 viginere::~viginere()
 {
     //dtor
