@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
 
-/*
+
     string mensaje;
     string aux;
     ifstream datos("poema.txt");
@@ -52,8 +52,8 @@ cout<<pro.mcd(A)<<endl;*/
 string ascii="ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ !\"#$%&'()*+'-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_´abcdefghijklmnopqrstuvwxyz{|}~Ç";
 cout<<ascii.size()<<ascii.at(34)<<endl;
 viginere emisor(ascii);
-string mensaje="zeta";
-string cif=emisor.cifrado(mensaje);
+//string mensaje="dia";
+string cif=emisor.cifrado(aux);
 cout<<cif<<endl;
 cout<<emisor.descifrado(cif)<<endl;
 
