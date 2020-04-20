@@ -11,6 +11,8 @@ class viginere
         string cifrado(string mensaje);
         string descifrado(string cifrado);
         string insertarAqui(string mensaje);
+        string quitarAqui(string mensaje);
+        string cifrado2(string mensaje);
     protected:
 
     private:

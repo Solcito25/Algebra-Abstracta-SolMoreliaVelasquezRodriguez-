@@ -34,6 +34,13 @@ int main()
     viginere recibe;
     //cout<<cif<<endl;
     cout<<recibe.descifrado(cif)<<endl;
+    string tem=emite.insertarAqui(aux);
+    cout<<tem<<endl;
+    string temp=emite.cifrado(tem);
+    cout<<temp<<endl;
+    string g=recibe.descifrado(temp);
+    cout<<recibe.quitarAqui(g)<<endl;
+    //cout<<emite.cifrado2("abstracta");
 
 
 }
