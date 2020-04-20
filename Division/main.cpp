@@ -16,7 +16,6 @@ int main()
        r=r*(-1);
        q=q-1;
        int temp =(q*n)+r;
-       //cout<<temp;
        while(temp!=a){
         r++;
         temp=(q*n)+r;
