@@ -3,6 +3,7 @@
 #include<string>
 #include <iostream>
 using namespace std;
+
 kasiski::kasiski()
 {
     //ctor
@@ -96,7 +97,7 @@ int kasiski::contInString(string buscar, string mensaje){
     }
     return cont;
 }
-
+//Cambio de valor de 14 a 15
 string kasiski::analisisFrecuenciasClave(string mensaje){
     //string letrasFrecuentes="AEO";
     int posFrecuent[]={0,4,10+4};
@@ -106,7 +107,7 @@ string kasiski::analisisFrecuenciasClave(string mensaje){
     for (int i=0;i<alfabeto.size();i++){
         suma[i]=arr[(i+0)%alfabeto.size()];
         suma[i]+=arr[(i+4)%alfabeto.size()];
-        suma[i]+=arr[(i+14)%alfabeto.size()];
+        suma[i]+=arr[(i+15)%alfabeto.size()];
     }
     int mayPos=findPosMayor(suma);
     //cout<<"Mayor posicion: "<<findPosMayor(sumas)<<endl;
