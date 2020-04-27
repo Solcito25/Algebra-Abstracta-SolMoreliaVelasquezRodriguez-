@@ -8,7 +8,7 @@ class viginere
         viginere();
         viginere(string alfabeto);
         virtual ~viginere();
-        string alfabeto="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,.";
+        string alfabeto="abcdefghijklmnopqrstuvwxyz -ABCDEFGHIJKLMNOPQRSTUVWXYZ,.0123456789";
         string cifrado(string mensaje);
         string descifrado(string cifrado);
         string insertarAqui(string mensaje);
@@ -17,7 +17,7 @@ class viginere
     protected:
 
     private:
-        string clave="Pablo Neruda";
+        string clave="Rony Rodrigo Sicos Barrera 191-10-46034";
 };
 
 #endif // VIGINERE_H

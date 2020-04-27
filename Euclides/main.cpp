@@ -1,0 +1,125 @@
+#include <NTL/ZZ.h>
+
+using namespace std;
+using namespace NTL;
+
+ZZ mod(ZZ a,ZZ b){
+    ZZ r=a%b;
+    if(r<0)
+        r=b-r;
+    return r;
+    }
+ZZ ValAbs(ZZ b){
+if(b<0){
+    ZZ x(-1);
+    return b*x;}
+return b;
+
+}
+ZZ euclides1(ZZ a,ZZ b){
+ZZ r=mod(a,b);
+     //cout<<"a"<<"    "<<"b"<<endl;
+    do{
+        //cout<<a<<"    "<<b<<endl;
+        a=b;
+        b=r;
+        r=mod(a,b);
+            }
+
+    while(r!=0);
+    return b;
+}
+ZZ euclides2(ZZ a,ZZ b){
+    ZZ r=mod(a,b);
+     //cout<<"a"<<"    "<<"b"<<endl;
+    do{
+        //cout<<a<<"    "<<b<<endl;
+        if(r>b/2)
+        r=b-r;
+        a=b;
+        b=r;
+        r=mod(a,b);
+    }
+    while(r!=0);
+    return b;
+}
+ZZ euclides3 (ZZ a, ZZ b){
+    if(b==0)
+        return a;
+    //cout<<"a"<<a<<"    "<<"b"<<b<<endl;
+    return euclides3(b,mod(a,b));
+}
+ZZ euclides4(ZZ a, ZZ b){
+ZZ x(2);
+//cout<<"a"<<a<<"    "<<"b"<<b<<endl;
+if(ValAbs(b)>ValAbs(a))return euclides4(b,a);
+else if (b==0) return a;
+else if(mod(a,x)==0&&mod(b,x)==0){return 2*(euclides4(a/2,b/2));}
+else if(mod(a,x)==0&&mod(b,x)!=0){return euclides4(a/2,b);}
+else if(mod(a,x)!=0&&mod(b,x)==0){return euclides4(a,b/2);}
+else {return euclides4((ValAbs(a)- ValAbs(b))/2,b);}
+
+}
+ZZ euclides5(ZZ a, ZZ b){
+ZZ g(1);ZZ x(2);
+while (mod(a,x)==0&&mod(b,x)==0){
+    a=a/2;b=b/2;g=2*g;
+    //cout<<" a "<<a<<" b "<<b<<" g "<<g<<endl;
+}
+while(a!=0){
+    while(mod(a,x)==0){a=a/2;
+    //cout<<" a "<<a<<endl;
+    }
+    while(mod(b,x)==0){b=b/2;
+    //cout<<" a "<<a<<endl;
+    }
+    ZZ t((ValAbs(a-b))/2);
+    if(a>=b)a=t;
+    else b=t;
+    //cout<<" a "<<a<<" b "<<b<<" t "<<t<<endl;
+}
+//cout<<a<<"    "<<b<<endl;
+return g*b;
+
+}
+
+ZZ euclides6(ZZ a, ZZ b){
+    //cout<<"r1"<<"    "<<"r2"<<endl;
+    while(a!=b){
+        if(a>b)
+            a=a-b;
+        else
+            b=b-a;
+       //cout<<a<<"    "<<b<<"    "<<endl;
+    }
+
+return a;
+}
+ZZ euclides7(ZZ a,ZZ b){
+    ZZ r(mod(a,b));
+    if(r==0)return b;
+    return euclides7(b,r);
+}
+int main()
+{
+    //cout << mod(412,260) << endl;
+    ZZ a, b;
+
+    cin >> a;
+    cin >> b;
+    cout << "Algoritmo 1 \n";
+    cout <<euclides1(a,b)<<"\n";
+    cout << "Algoritmo 2 \n";
+    cout <<euclides2(a,b)<<"\n";
+    cout << "Algoritmo 3 \n";
+    cout <<euclides3(a,b)<<"\n";
+    cout << "Algoritmo 4 \n";
+    cout <<euclides4(a,b)<<"\n";
+    cout << "Algoritmo 5 \n";
+    cout <<euclides5(a,b)<<"\n";
+    cout << "Algoritmo 6 \n";
+    cout <<euclides6(a,b)<<"\n";
+    cout << "Algoritmo 7 \n";
+    cout <<euclides7(a,b)<<"\n";
+    return 0;
+}

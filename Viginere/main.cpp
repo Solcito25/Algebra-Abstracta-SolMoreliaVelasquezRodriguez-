@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-
+/*
 
     string mensaje;
     string aux;
@@ -22,20 +22,24 @@ int main()
             aux+='\n';
         }
 
-/*
+
 
     viginere emisor;
     string cifrado=emisor.cifrado(aux);
     cout<<cifrado<<endl;
     viginere receptor;
     cout<<receptor.descifrado(cifrado)<<endl;
-
-    string mensajes="hola";
+*/
+    string mensajes="The MEgraph application used to display this network combines techniques such as topological range searching and motion highlighting to enable interactive exploration of complex network diagrams";
     viginere emite;
-    string cif=emite.cifrado(mensajes);
-    viginere recibe;
+    //string cif=emite.cifrado(mensajes);
     //cout<<cif<<endl;
-    cout<<recibe.descifrado(cif)<<endl;
+
+    string maria=" vrWaluurxnM 5xnwu UiDCCJsC4zkNr3Hmlb3sfFuEQf-hICuDIgkq tGOeHPxvcFehhT5iZmq2auRELPM4AoDooq 1GtoDEF HveGcF9m7Z1dCuiemc3-LDGXvozonFG3oAFEYFnrspv Ges5Q12Scr4t8cByKPRFlDvEADgkq FJFxPCiIwMijrC90Fl6cl";
+    cout<<emite.descifrado(maria);
+   // viginere recibe;
+    //cout<<cif<<endl;
+    /*cout<<recibe.descifrado(cif)<<endl;
     string tem=emite.insertarAqui(aux);
     cout<<tem<<endl;
     string temp=emite.cifrado(tem);
@@ -48,7 +52,7 @@ int main()
 kasiski pro;
 cout<<pro.mcd(A)<<endl;*/
 
-
+/*
 string ascii="ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ !\"#$%&'()*+'-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_´abcdefghijklmnopqrstuvwxyz{|}~Ç";
 cout<<ascii.size()<<ascii.at(34)<<endl;
 viginere emisor(ascii);
@@ -57,7 +61,7 @@ string cif=emisor.cifrado(aux);
 cout<<cif<<endl;
 cout<<emisor.descifrado(cif)<<endl;
 
-
+*/
 
 
 }
