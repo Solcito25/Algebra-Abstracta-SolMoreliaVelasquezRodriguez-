@@ -19,6 +19,7 @@ viginere::~viginere()
 
 string viginere::cifrado(string mensaje){
     string cifrado;
+    int aux;
     for(int i=0;i<mensaje.size();i++){
         int a=alfabeto.find(mensaje.at(i));
         int b=alfabeto.find(clave.at(i%clave.size()));

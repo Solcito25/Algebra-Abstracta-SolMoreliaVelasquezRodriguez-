@@ -34,13 +34,12 @@ vector <int> kasiski::distanciaSecuenciasRepetidas(string mensaje){
     for (int i=0;i<mensaje.size()-3;i++){
         size_t finder=mensaje.find(strRepetida,i+1);
         if (finder!=string::npos){
-            cout<<"i"<<i<<endl;
             cadenasRepetidas.push_back(strRepetida);
             distancias.push_back(finder-i);
         }
         strRepetida=mensaje.substr(i+1,3);
     }
-    for (int i=0;i<cadenasRepetidas.size();i++) cout<<"Cadena: "<<cadenasRepetidas[i]<<" "<<distancias[i]<<" pos de separacion"<<endl;
+
     return distancias;
 }
 
@@ -75,7 +74,7 @@ vector <string> kasiski::divCadena(int noSubcadenas,string mensaje){
             subcadenas[i]+=mensaje[tam-residuo+i];
         }
     }
-    for (int i=0;i<noSubcadenas;i++) cout<<"Subcadena "<<i<<": "<<subcadenas[i]<<endl;
+
     return subcadenas;
 }
 
@@ -97,20 +96,19 @@ int kasiski::contInString(string buscar, string mensaje){
     }
     return cont;
 }
-//Cambio de valor de 14 a 15
+//Cambio de valor de 10 a 11
 string kasiski::analisisFrecuenciasClave(string mensaje){
-    //string letrasFrecuentes="AEO";
-    int posFrecuent[]={0,4,10+4};
+    int posFrecuent[]={0,4,11+4};
     vector <int> arr(alfabeto.size());
     vector <int> suma(alfabeto.size());
     arr=frecuencia(mensaje);
     for (int i=0;i<alfabeto.size();i++){
-        suma[i]=arr[(i+0)%alfabeto.size()];
-        suma[i]+=arr[(i+4)%alfabeto.size()];
-        suma[i]+=arr[(i+15)%alfabeto.size()];
+        suma[i]=arr[(i+posFrecuent[0])%alfabeto.size()];
+        suma[i]+=arr[(i+posFrecuent[1])%alfabeto.size()];
+        suma[i]+=arr[(i+posFrecuent[2])%alfabeto.size()];
     }
     int mayPos=findPosMayor(suma);
-    //cout<<"Mayor posicion: "<<findPosMayor(sumas)<<endl;
+    ;
     return alfabeto.substr(mayPos,1);
 }
 
@@ -118,9 +116,9 @@ int kasiski::findPosMayor(vector <int> arr){
     int posMay=0;
     for(int i=1;i<arr.size();i++){
         if(arr[i]>arr[posMay]) posMay=i;
-        //else if(arr[i]==arr[posMayor])
+
     }
 
-    cout<<"posMay: "<<arr[posMay]<<endl;
+
     return posMay;
 }
