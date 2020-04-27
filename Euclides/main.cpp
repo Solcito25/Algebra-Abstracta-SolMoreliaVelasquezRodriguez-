@@ -4,7 +4,8 @@ using namespace std;
 using namespace NTL;
 
 ZZ mod(ZZ a,ZZ b){
-    ZZ r=a%b;
+    ZZ q=a/b;
+    ZZ r=a-(b*q);
     if(r<0)
         r=b-r;
     return r;
@@ -110,11 +111,13 @@ return a;
 }
 int main()
 {
-    //cout << mod(412,260) << endl;
+
     ZZ a, b;
 
     cin >> a;
     cin >> b;
+    cout<<mod(a,b);
+    /*
     cout << "Algoritmo 1 \n";
     cout <<"MCD "<<euclides1(a,b)<<"\n";
     cout << "Algoritmo 2 \n";
@@ -131,5 +134,5 @@ int main()
     cout <<"MCD "<<euclides7(a,b)<<"\n";
     cout << "Algoritmo 8 \n";
     cout <<"MCD "<<euclides8(a,b)<<"\n";
-    return 0;
+    return 0;*/
 }
