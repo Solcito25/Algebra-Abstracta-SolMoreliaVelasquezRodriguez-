@@ -17,7 +17,7 @@ class viginere
     protected:
 
     private:
-        string clave="Rony Rodrigo Sicos Barrera 191-10-46034";
+        string clave="Pablo Neruda";
 };
 
 #endif // VIGINERE_H
