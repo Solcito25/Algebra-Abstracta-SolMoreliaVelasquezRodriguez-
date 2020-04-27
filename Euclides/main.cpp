@@ -116,8 +116,8 @@ int main()
 
     cin >> a;
     cin >> b;
-    cout<<mod(a,b);
-    /*
+
+
     cout << "Algoritmo 1 \n";
     cout <<"MCD "<<euclides1(a,b)<<"\n";
     cout << "Algoritmo 2 \n";
@@ -134,5 +134,5 @@ int main()
     cout <<"MCD "<<euclides7(a,b)<<"\n";
     cout << "Algoritmo 8 \n";
     cout <<"MCD "<<euclides8(a,b)<<"\n";
-    return 0;*/
+    return 0;
 }
