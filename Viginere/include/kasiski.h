@@ -16,7 +16,7 @@ class kasiski
 
          string analisisFrecuenciasClave(string mensaje);
          int contInString(string buscar, string mensaje);
-         string alfabeto;
+         static string alfabeto;
     protected:
 
     private:
