@@ -82,7 +82,6 @@ vector<int> kasiski::frecuencia(string mensaje){
     vector <int> frecuent(alfabeto.size());
     for (int i=0;i<frecuent.size();i++){
         frecuent[i]=contInString(alfabeto.substr(i,1),mensaje);
-        //cout<<"Frecuencia en mensaje: "<<alfabeto[i]<<" "<<frecuent[i]<<endl;//FUNCIONA
     }
     return frecuent;
 }

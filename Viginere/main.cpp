@@ -54,8 +54,9 @@ kasiski pro;
 cout<<pro.mcd(A)<<endl;*/
 
 
-/*string ascii="яяяяяяяяяяяяяяяяяяяяяяяяяяяяяя !\"#$%&'()*+'./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_іabcdefghijklmnopqrstuvwxyz{|}~ я«ьйвдаезклипомƒ≈…ж∆фцтыщ€÷№ш£Ў„Гбнуъс—™Їњ яяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяяя";
-cout<<ascii.size()<<endl;
+//string alfabetoASCII=" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_іabcdefghijklmnopqrstuvwxyz{|}~я«ьйвдаезклипомƒ≈…ж∆фцтыщ€÷№ш£Ў„Гбнуъс—™Їњ";
+
+
 /*viginere emisor(ascii);
 //string mensaje="dia";
 string cif=emisor.cifrado(aux);
@@ -63,8 +64,8 @@ cout<<cif<<endl;
 cout<<emisor.descifrado(cif)<<endl;
 
 */
-kasiski prueba;
-cout<<prueba.Ataque("LNUDVMUYRMUDVLLPXAFZUEFAIOVWVMUOVMUEVMUEZCUDVSYWCIVCFGUCUNYCGALLGRCYTIJTRNNPJQOPJEMZITYLIAYYKRYEFDUDCAMAVRMZEAMBLEXPJCCQIEHPJTYXVNMLAEZTIMUOFRUFC");
+//kasiski prueba;
+//cout<<prueba.Ataque("LNUDVMUYRMUDVLLPXAFZUEFAIOVWVMUOVMUEVMUEZCUDVSYWCIVCFGUCUNYCGALLGRCYTIJTRNNPJQOPJEMZITYLIAYYKRYEFDUDCAMAVRMZEAMBLEXPJCCQIEHPJTYXVNMLAEZTIMUOFRUFC");
 
 }
 
