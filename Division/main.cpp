@@ -1,7 +1,13 @@
 #include <iostream>
 
 using namespace std;
+int mod(int a,int b){
 
+    int r=a-(b*(a/b));
+    if(r<0)
+        r=b-r;
+    return r;
+    }
 int main()
 {
     int a,q,r,n;
