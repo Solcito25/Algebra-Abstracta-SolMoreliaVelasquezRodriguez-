@@ -1,6 +1,7 @@
 #include <iostream>
 
 using namespace std;
+///Version dos de division
 int mod(int a,int b){
 
     int r=a-(b*(a/b));
@@ -8,6 +9,7 @@ int mod(int a,int b){
         r=b-r;
     return r;
     }
+///Primera version de division
 int main()
 {
     int a,q,r,n;
