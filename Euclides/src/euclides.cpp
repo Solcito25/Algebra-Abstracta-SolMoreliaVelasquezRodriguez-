@@ -13,8 +13,8 @@ euclides::~euclides()
     //dtor
 }
 ZZ euclides::mod(ZZ a,ZZ b){
-    ZZ q=a/b;
-    ZZ r=a-(b*q);
+
+    ZZ r=a-(b*(a/b));
     if(r<0)
         r=b-r;
     return r;

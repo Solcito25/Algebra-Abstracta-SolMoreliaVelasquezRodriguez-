@@ -23,14 +23,14 @@ string viginere::cifrado(string mensaje){
     for(int i=0;i<mensaje.size();i++){
         int a=alfabeto.find(mensaje.at(i));
         int b=alfabeto.find(clave.at(i%clave.size()));
-        if(a!=string::npos && b!=string::npos){
+        //if(a!=string::npos && b!=string::npos){
         int pos=(a+b);
         if(pos>=alfabeto.size())
             pos%=alfabeto.size();
         cifrado+=alfabeto.at(pos);
-        }
-        else
-            cifrado+=mensaje.at(i);
+        //}
+        //else
+           // cifrado+=mensaje.at(i);
     }
 return cifrado;
 }
@@ -43,16 +43,16 @@ string viginere::descifrado(string cifrado){
 
         int a=alfabeto.find(cifrado.at(i));
         int b=alfabeto.find(clave.at(i%clave.size()));
-        if(a!=string::npos && b!=string::npos){
+        //if(a!=string::npos && b!=string::npos){
         int pos=(a-b);
         if(pos<0)
             pos+=alfabeto.size();
         else if(pos>=alfabeto.size())
              pos%=alfabeto.size();
         descifrado+=alfabeto.at(pos);
-        }
-        else
-            descifrado+=cifrado.at(i);
+        //}
+        //else
+           // descifrado+=cifrado.at(i);
 
 }
 return descifrado;
@@ -67,7 +67,6 @@ string viginere:: insertarAqui(string mensaje){
         int a=mensaje.find("AQUI")+4;
         i=i+a;
             }
-            cout<<mensaje.size()<<endl;
     while(mensaje.size()%4!=0){
         mensaje.append("W");
     }
@@ -100,7 +99,6 @@ return cifrado;
 
 string viginere::quitarAqui(string mensaje){
     int a=mensaje.find("AQUI");
-
     while(a!=string::npos){
         mensaje.erase(a,4);
         a=mensaje.find("AQUI",a+1);}
