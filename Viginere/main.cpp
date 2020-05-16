@@ -32,19 +32,19 @@ int main()
     cout<<receptor.descifrado(cifrado)<<endl;
 
     //string mensajes="The MEgraph application used to display this network combines techniques such as topological range searching and motion highlighting to enable interactive exploration of complex network diagrams";
-    /*string hola="hola";
+    //string hola="hola";
     viginere emite;
-    string cif=emite.cifrado(hola);
+    /*string cif=emite.cifrado(hola);
     cout<<cif<<endl;*/
 
     //string maria=" vrWaluurxnM 5xnwu UiDCCJsC4zkNr3Hmlb3sfFuEQf-hICuDIgkq tGOeHPxvcFehhT5iZmq2auRELPM4AoDooq 1GtoDEF HveGcF9m7Z1dCuiemc3-LDGXvozonFG3oAFEYFnrspv Ges5Q12Scr4t8cByKPRFlDvEADgkq FJFxPCiIwMijrC90Fl6cl";
     //cout<<emite.descifrado(maria);
-   //viginere recibe;
+   viginere recibe;
     //cout<<cif<<endl;
     //cout<<recibe.descifrado(cif)<<endl;
-    //string tem=emite.insertarAqui(aux);
-    //cout<<tem<<endl;
-    /*string temp=emite.cifrado(tem);
+    string tem=emite.insertarAqui(aux);
+    cout<<tem<<endl;
+    string temp=emite.cifrado(tem);
     cout<<temp<<endl;
     string g=recibe.descifrado(temp);
     cout<<recibe.quitarAqui(g)<<endl;

@@ -60,7 +60,17 @@ return descifrado;
 
 
 string viginere:: insertarAqui(string mensaje){
-    int i=10;
+    int b=mensaje.size()+((mensaje.size()/10))*4;
+    for(int i=10;i<b;i=i+14){
+        mensaje.insert(i,"AQUI");
+    }
+    cout<<mensaje.size()<<endl;
+    while(mensaje.size()%4!=0)
+        mensaje.append("W");
+    cout<<mensaje.size()<<endl;
+    return mensaje;
+
+    /*int i=10;
     int b=mensaje.size()+((mensaje.size()/10))*4;
     while(i<b){
         mensaje.insert(i,"AQUI");
@@ -70,7 +80,7 @@ string viginere:: insertarAqui(string mensaje){
     while(mensaje.size()%4!=0){
         mensaje.append("W");
     }
-    return mensaje;
+    return mensaje;*/
 }
 
 
