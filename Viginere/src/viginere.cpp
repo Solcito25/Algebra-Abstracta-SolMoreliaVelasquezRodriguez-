@@ -5,7 +5,7 @@ using namespace std;
 viginere::viginere()
 {
 
-    //string clave="Pablo Neruda";
+    clave="Pablo Neruda";
 }
 viginere::viginere(string alfabeto)
 {

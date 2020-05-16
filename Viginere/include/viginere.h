@@ -17,7 +17,7 @@ class viginere
     protected:
 
     private:
-        string clave="Pablo Neruda";
+        string clave;
 };
 
 #endif // VIGINERE_H
