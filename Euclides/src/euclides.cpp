@@ -61,26 +61,26 @@ ZZ x(2);
 cout<<" a "<<a<<"    "<<" b "<<b<<endl;
 if(ValAbs(b)>ValAbs(a))return euclides4(b,a);
 else if (b==0) return a;
-else if(mod(a,x)==0&&mod(b,x)==0){return 2*(euclides4(a/2,b/2));cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
-else if(mod(a,x)==0&&mod(b,x)!=0){return euclides4(a/2,b);cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
-else if(mod(a,x)!=0&&mod(b,x)==0){return euclides4(a,b/2);cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
-else {return euclides4((ValAbs(a)- ValAbs(b))/2,b);cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
+else if(mod(a,x)==0&&mod(b,x)==0){return 2*(euclides4(a>>1,b>>1));cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
+else if(mod(a,x)==0&&mod(b,x)!=0){return euclides4(a>>1,b);cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
+else if(mod(a,x)!=0&&mod(b,x)==0){return euclides4(a,b>>1);cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
+else {return euclides4((ValAbs(a)- ValAbs(b))>>1,b);cout<<" a "<<a<<"    "<<" b "<<b<<endl;}
 
 }
 ZZ euclides::euclides5(ZZ a, ZZ b){
 ZZ g(1);ZZ x(2);ZZ t;
 while (mod(a,x)==0&&mod(b,x)==0){
-    a=a/2;b=b/2;g=2*g;
+    a=a>>=1;b=b>>=1;g=2*g;
     cout<<" a "<<a<<" b "<<b<<" g "<<g<<endl;
 }
 while(a!=0){
-    while(mod(a,x)==0){a=a/2;
+    while(mod(a,x)==0){a>>=1;
     cout<<" a "<<a<<" b "<<b<<" t "<<t<<endl;
     }
-    while(mod(b,x)==0){b=b/2;
+    while(mod(b,x)==0){b>>=1;
     cout<<" a "<<a<<" b "<<b<<" t "<<t<<endl;
     }
-    t=((ValAbs(a-b))/2);
+    t=((ValAbs(a-b))>>1);
     if(a>=b)a=t;
     else b=t;
     cout<<" a "<<a<<" b "<<b<<" t "<<t<<endl;

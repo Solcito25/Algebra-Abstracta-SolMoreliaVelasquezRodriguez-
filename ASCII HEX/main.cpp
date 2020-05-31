@@ -16,12 +16,13 @@ ifstream datos("mensaje.txt");
             aux+=mensaje;
 */
 vig emisor;
-string mensaje=emisor.leermensaje("mensaje");
-string cifrado=emisor.cifrado(mensaje);
-emisor.guardarmensaje(cifrado,"cifrado");
+//string mensaje=emisor.leermensaje("mensaje");
+emisor.cifrado();
+emisor.descifrado();
+/*emisor.guardarmensaje(cifrado,"cifrado");
 string cif=emisor.leermensaje("cifrado");
 string descifrado=emisor.descifrado(cif);
-emisor.guardarmensaje(descifrado,"descifrado");
+emisor.guardarmensaje(descifrado,"descifrado");*/
 
 
 }

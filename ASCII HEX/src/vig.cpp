@@ -18,7 +18,8 @@ int vig:: finds(vector<string> vec,string buscando){
         if(vec[pos]==buscando) return pos;
     return string::npos;
 }
-string vig::cifrado(string mensaje){
+string vig::cifrado(){
+    string mensaje=leermensaje("mensaje");
     string cifrado;
     for(int i=0;i<mensaje.size();i++){
         int a=finds(alfabeto,mensaje.substr(i,1));
@@ -27,7 +28,9 @@ string vig::cifrado(string mensaje){
         if(pos>=alfabeto.size()-iniAlfa)
             pos%=alfabeto.size()-iniAlfa;
         cifrado+=alfabeto.at(pos+iniAlfa);
+        cifrado+='\n';
     }
+    guardarmensaje(cifrado,"cifrado");
 return cifrado;
 }
 void vig::guardarmensaje(string mensaje, string doc){
@@ -48,22 +51,24 @@ ifstream datos(archivo+".txt");
 
 return aux;
 }
-string vig::descifrado(string cifrado){
+string vig::descifrado(){
+    string cifrado;
     string descifrado;
+    ifstream datos("cifrado.txt");
+    while(!datos.eof())
+        datos>>cifrado;
     for(int i=0;i<cifrado.size();i++){
         int a=finds(alfabeto,clave.substr(i%clave.size(),1));
-        int b=finds(alfabeto,cifrado.substr(i,1));
-        //if(a!=string::npos && b!=string::npos){
+        int b=finds(alfabeto,cifrado);
         int pos=(a-b)-iniAlfa;
         if(pos<iniAlfa)
             pos+=(alfabeto.size()-iniAlfa);
         else if(pos>=alfabeto.size()-iniAlfa)
              pos%=(alfabeto.size()-iniAlfa);
         descifrado+=alfabeto.at(pos);
-        //}
-        //else
-           // descifrado+=cifrado.at(i);
+        descifrado+='\n';
 
 }
+guardarmensaje(descifrado,"descifrado");
 return descifrado;
 }
