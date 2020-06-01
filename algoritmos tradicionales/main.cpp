@@ -2,6 +2,7 @@
 #include "algTradicionales.h"
 #include<string>
 #include "railfence.h"
+#include "monomio.h"
 using namespace std;
 
 int main()
@@ -12,9 +13,15 @@ int main()
     mensaje= emisor.cifradoPoly(mensaje);
     cout<<"cifrado: "<<mensaje<<endl;
     cout<<"descifrado: "<<emisor.descifradoPoly(mensaje)<<endl;*/
-    railfence emisor;
+    /*railfence emisor;
     string cifrados=emisor.cifrado("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     cout<<"cifrado final "<<cifrados<<endl;
     //string descif=emisor.descifrado("AIQYBHJPRXZCGKOSWDFLNTVEMU");
-    //cout<<descif<<endl;
+    //cout<<descif<<endl;*/
+    monomio emisor,receptor;
+    string cif=emisor.cifrado("OMMA");
+    cout<<cif<<endl;
+    cout<<receptor.descifrado(cif)<<endl;
+
+
 }
