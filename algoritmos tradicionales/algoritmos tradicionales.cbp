@@ -35,9 +35,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/algTradicionales.h" />
+		<Unit filename="include/monomio.h" />
 		<Unit filename="include/railfence.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/algTradicionales.cpp" />
+		<Unit filename="src/monomio.cpp" />
 		<Unit filename="src/railfence.cpp" />
 		<Extensions>
 			<code_completion />

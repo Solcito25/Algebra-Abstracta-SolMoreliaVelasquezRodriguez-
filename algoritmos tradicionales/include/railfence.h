@@ -8,7 +8,6 @@ class railfence
         railfence();
         virtual ~railfence();
         string cifrado(string mensaje);
-        int mod(int,int);
         string descifrado(string mensaje);
 
     protected:

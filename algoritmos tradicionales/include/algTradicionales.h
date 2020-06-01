@@ -10,6 +10,7 @@ class algTradicionales
         virtual ~algTradicionales();
         string cifradoPoly(string mensaje);
         string descifradoPoly(string mensajeCifrado);
+        int mod(int,int);
         string alfabeto="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     protected:
 

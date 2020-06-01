@@ -11,7 +11,12 @@ algTradicionales::~algTradicionales()
     //dtor
 }
 
-
+int algTradicionales::mod(int a,int b){
+    int r=a-(b*(a/b));
+    if(r<0)
+        r=b+r;
+    return r;
+    }
 
 string algTradicionales::cifradoPoly(string mensaje){
     string cifrado;
@@ -19,7 +24,7 @@ string algTradicionales::cifradoPoly(string mensaje){
         int aux=alfabeto.find(mensaje[i]);///busca en la matriz la posicion de la letra
         if(aux>8) aux--;///Resta 1 ya que I/J comparten posicion
         cifrado+=alfabeto.at(aux/5);///busca la columna y concatena
-        cifrado+=alfabeto.at(aux%5);///busca la fila y concatena
+        cifrado+=alfabeto.at(mod(aux,5));///busca la fila y concatena
     }
     return cifrado;
 }

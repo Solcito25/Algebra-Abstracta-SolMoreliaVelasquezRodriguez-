@@ -11,12 +11,7 @@ railfence::~railfence()
 {
     //dtor
 }
-int railfence::mod(int a,int b){
-    int r=a-(b*(a/b));
-    if(r<0)
-        r=b-r;
-    return r;
-    }
+
 string railfence::cifrado(string mensaje){
     string cifrados(mensaje.size(),' ');
     int ind=0,q2=0,q1=(clave*2)-2;

@@ -12,16 +12,16 @@ int main()
     getline(cin,mensaje);
     mensaje= emisor.cifradoPoly(mensaje);
     cout<<"cifrado: "<<mensaje<<endl;
-    cout<<"descifrado: "<<emisor.descifradoPoly(mensaje)<<endl;*/
+    cout<<"descifrado: "<<emisor.descifradoPoly(mensaje)<<endl;
     /*railfence emisor;
     string cifrados=emisor.cifrado("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     cout<<"cifrado final "<<cifrados<<endl;
     //string descif=emisor.descifrado("AIQYBHJPRXZCGKOSWDFLNTVEMU");
     //cout<<descif<<endl;*/
-    monomio emisor,receptor;
-    string cif=emisor.cifrado("OMMA");
+    /*monomio emisor,receptor;
+    string cif=emisor.cifrado("ALGEBRA");
     cout<<cif<<endl;
     cout<<receptor.descifrado(cif)<<endl;
-
+*/
 
 }
