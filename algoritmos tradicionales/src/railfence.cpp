@@ -4,7 +4,7 @@
 using namespace std;
 railfence::railfence()
 {
-   clave=7;
+   clave=5;
 }
 
 railfence::~railfence()
@@ -14,10 +14,10 @@ railfence::~railfence()
 
 string railfence::cifrado(string mensaje){
     string cifrados(mensaje.size(),' ');
-    int ind=0,q2=0,q1=(clave*2)-2;
+    int q1=(clave*2)-2,ind=0,q2=0;
     for(int i=0;i<clave;i++,q1-=2,q2+=2){
-        int pos=i;
         cifrados.at(ind++)=mensaje.at(i);
+        int pos=i;
         while(pos<mensaje.size()){
             pos+=q1;
             if(q1&&pos<mensaje.size())
@@ -32,10 +32,10 @@ string railfence::cifrado(string mensaje){
 
 string railfence::descifrado(string cifrado){
     string descifrados(cifrado.size(),' ');
-    int ind=0,q2=0,q1=(clave*2)-2;
+    int q1=(clave*2)-2,ind=0,q2=0;
     for(int i=0;i<clave;i++,q1-=2,q2+=2){
-        int pos=i;
         descifrados.at(i)=cifrado.at(ind++);
+        int pos=i;
         while(pos<cifrado.size()){
             pos+=q1;
             if(q1&&pos<cifrado.size())

@@ -20,22 +20,21 @@ int algTradicionales::mod(int a,int b){
 
 string algTradicionales::cifradoPoly(string mensaje){
     string cifrado;
-    for (int i=0;i<mensaje.size();i++){///por cada letra del mensaje
-        int aux=alfabeto.find(mensaje[i]);///busca en la matriz la posicion de la letra
-        if(aux>8) aux--;///Resta 1 ya que I/J comparten posicion
-        cifrado+=alfabeto.at(aux/5);///busca la columna y concatena
-        cifrado+=alfabeto.at(mod(aux,5));///busca la fila y concatena
+    for (int i=0;i<mensaje.size();i++){
+        int pos=alfabeto.find(mensaje.at(i));///busca en la matriz la posicion de la letra
+        if(pos>8) pos--;///Resta 1 porque I/J comparten posicion
+        cifrado+=alfabeto.at(pos/5);///busca la columna
+        cifrado+=alfabeto.at(mod(pos,5));///busca la fila
     }
     return cifrado;
 }
 
 string algTradicionales::descifradoPoly(string mensajeCifrado){
-    string mensaje;
+    string descifrado;
     for(int i=0;i<mensajeCifrado.size();i+=2){
-        ///El primer caracter corresponde a la columna y el segundo a la fila
-        int aux=alfabeto.find(mensajeCifrado[i])*5+alfabeto.find(mensajeCifrado[i+1]);
-        if(aux>8) aux++;///evalua si es mayor a 8 por la posicion I/J
-        mensaje+=alfabeto.at(aux);///concatena en el mensaje de salida
+        int pos=alfabeto.find(mensajeCifrado.at(i))*5+alfabeto.find(mensajeCifrado.at(i+1));
+        if(pos>8) pos++;///evalua si es mayor a 8 por la posicion I/J
+        descifrado+=alfabeto.at(pos);
     }
-    return mensaje;
+    return descifrado;
 }
