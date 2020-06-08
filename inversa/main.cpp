@@ -6,7 +6,7 @@ using namespace NTL;
 int main()
 {
     inversa prueba;
-    ZZ a(61);ZZ n(89);
+    ZZ a(15);ZZ n(26);
     cout<<prueba.multiplicativa(a,n)<<endl;
     return 0;
 }
