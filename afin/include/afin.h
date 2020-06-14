@@ -10,7 +10,7 @@ class afin
         afin();
         afin(int x,int y);
         virtual ~afin();
-        string alfabeto="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        string alfabeto="ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-( )abcdefghijklmnopqrstuvwxyz<>*1234567890";
         string cifrado(string mensaje);
         string descifrado(string cif);
     protected:

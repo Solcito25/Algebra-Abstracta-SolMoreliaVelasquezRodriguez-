@@ -33,6 +33,8 @@ void afin::GenerarClaves(){
 }
 
 string afin::cifrado(string mensaje){
+    cout<<"a"<<a<<endl;
+    cout<<"b"<<b<<endl;
     string cifrado;mate modu;
     for(int i=0;i<mensaje.size();i++){
         int m=alfabeto.find(mensaje.at(i));
