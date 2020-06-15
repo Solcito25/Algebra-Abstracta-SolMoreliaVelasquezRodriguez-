@@ -6,7 +6,10 @@ using namespace std;
 using namespace NTL;
 int main()
 {
-    RSA emisor(ZZ(101),ZZ(731));
-    emisor.cifrado("TI");
+    RSA receptor;
+    receptor.descifrado();
+    receptor.NumALetras();
+    /*RSA emisor(ZZ(401),ZZ(731));
+    emisor.cifrado("HOLA");*/
     return 0;
 }
