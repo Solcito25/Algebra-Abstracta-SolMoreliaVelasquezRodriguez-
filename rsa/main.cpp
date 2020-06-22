@@ -5,11 +5,17 @@
 using namespace std;
 using namespace NTL;
 int main()
+
+
+
 {
     RSA receptor;
     receptor.descifrado();
-    receptor.NumALetras();
-    /*RSA emisor(ZZ(401),ZZ(731));
-    emisor.cifrado("HOLA");*/
+    //receptor.NumALetras();
+    /*RSA emisor(ZZ(33091),ZZ(36089));
+    emisor.cifrado("s");*/
+
+
+
     return 0;
 }

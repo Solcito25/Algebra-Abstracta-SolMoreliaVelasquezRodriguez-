@@ -5,20 +5,23 @@
 using namespace NTL;
 RSA::RSA()///Constructor del receptor
 {
-   ZZ p(17);
-   ZZ q(43);
+   ZZ p(104651);
+   ZZ q(104659);
    n=p*q;
    ZZ pin((p-1)*(q-1));
    ZZ ee(1);mat mcd;
-   e=619;
+   e=13301;
    /*do{
         ee=aleatorio(pin);
    }
    while(mcd.euclides5(ee,pin)!= 1);
-   e=ee;*/
+   e=ee;
    cout<<"n"<<n<<endl;
    cout<<"e"<<e<<endl;
+   cout<<"pin"<<pin<<endl;*/
+
    d=mcd.multiplicativa(e,pin);
+   cout<<"d"<<d<<endl;
 
 }
 ZZ RSA::aleatorio(ZZ lim){

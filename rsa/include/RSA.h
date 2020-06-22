@@ -10,7 +10,7 @@ class RSA
         RSA();
         RSA(ZZ E,ZZ N);
         virtual ~RSA();
-         string alfabeto="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+         string alfabeto="ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-( )abcdefghijklmnopqrstuvwxyz<>*1234567890";
          void cifrado(string mensaje);
          void descifrado();
          void NumALetras();
