@@ -7,7 +7,7 @@ using namespace NTL;
 RSA::RSA(int bits)///Constructor del receptor
 {
     ZZ p,q;
-    /*string name=to_string(bits),num;
+    string name=to_string(bits),num;
     name+="bits.txt";
     ifstream archivo(name);
     ZZ ra(aleatorio(ZZ(10)));
@@ -16,17 +16,18 @@ RSA::RSA(int bits)///Constructor del receptor
     p=conv<ZZ>(num.c_str());
     for(ZZ i(0);i<ra;i++)
         getline(archivo,num);
-    q=conv<ZZ>(num.c_str());*/
-   p=17;q=59;
+    q=conv<ZZ>(num.c_str());
+   /*p=conv<ZZ>("11662549951736690528562247903094017441184471433847478450052971100435575108856049882366021952532653517875323501821154497065839230550825887848744087624709557");
+   q=conv<ZZ>("8895979267519823609767957800815683806539083214414144670056697494968030002688625975201313652099464586292075131685224785311257468037787729052559391212728093");*/
    n=p*q;
    ZZ pin((p-1)*(q-1));
    ZZ ee(1);
-   e=3;
-   /*do{
+   //e=32089;
+   do{
         ee=aleatorio(pin);
    }
    while(euclides5(ee,pin)!= 1);
-   e=ee;*/
+   e=ee;
    cout<<"p"<<p<<endl;
    cout<<"q"<<q<<endl;
    cout<<"n"<<n<<endl;
@@ -53,7 +54,7 @@ RSA::~RSA()
 }
 string RSA::cifrado(string mensaje){
     int di=(to_string(alfabeto.size())).size();
-    string alfa;string extra="26";
+    string alfa;string extra="22";
     string s=ZZtoStr(n);int digitos=s.size()-1;
     for(int i=0;i<mensaje.size();i++){
         int P=alfabeto.find(mensaje.at(i));
@@ -65,9 +66,9 @@ string RSA::cifrado(string mensaje){
              else
                 alfa+=to_string(P);
     }
-    int k=0;
+
     while(mod(ZZ(alfa.size()),ZZ(digitos))!=ZZ(0)){
-        alfa+=extra.substr(k);k++;
+        alfa+=extra;
     }
     ofstream file("cifrado.txt");///guarda mensaje cifrado
     string fin;
@@ -114,9 +115,9 @@ string RSA::descifrado(string mensaje){
         fin+=alfabeto.at(pos);
     }
 
-    /*ifstream file ("cif.txt");/// contiene mensaje a descifrar
+    //ifstream file ("cif.txt");/// contiene mensaje a descifrar
     ofstream archivo("descifrado.txt");///guarda la posicion de las letras
-    string pos;ZZ num(1);
+    /*string pos;ZZ num(1);
     while(getline(file,pos)){
             num= conv<ZZ>(pos.c_str());
             num=exponencial(num,d,n);
@@ -124,6 +125,7 @@ string RSA::descifrado(string mensaje){
         }
         file.close();
         archivo.close();*/
+        archivo<<fin;
     return fin;
 }
 
