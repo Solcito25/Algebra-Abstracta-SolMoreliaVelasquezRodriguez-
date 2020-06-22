@@ -75,7 +75,6 @@ ifstream archivo("datos.csv");
         pi.append(ecuaciones.at(i));
     for(long i=0;i<pi.length();i++){
        for(long j=i+1;j<pi.length();j++){
-           //ZZ mcd(euclides5(pi.at(i),pi.at(j)));
            if(euclides5(pi.at(i),pi.at(j))!= ZZ(1)){
               cout<<"No hay solucion porque no son coprimos"<<endl;return;}
     }
