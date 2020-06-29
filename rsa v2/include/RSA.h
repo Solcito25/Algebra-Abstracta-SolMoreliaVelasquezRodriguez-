@@ -21,7 +21,6 @@ class RSA
         ZZ e;
         ZZ d;
         ZZ aleatorio(ZZ pin);
-        int bits;
         string ZZtoStr(ZZ a);
 
 };

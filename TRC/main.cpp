@@ -56,7 +56,7 @@ ZZ multiplicativa(ZZ a,ZZ n){
     cout<<"No tiene inversa"<<endl;
 }
 
-void Resto_Chino(){
+ZZ Resto_Chino(){
 ifstream archivo("datos.csv");
     Vec<ZZ> ecuaciones;
     string line;
@@ -64,6 +64,7 @@ ifstream archivo("datos.csv");
         for(long i=0,j=line.find(",",i+1);j!=string::npos;i=j,j=line.find(",",++i))
             ecuaciones.append(conv<ZZ>((line.substr(i,j-i)).c_str()));
     }
+    ///Se realiza este for en caso de que el coeficiente de x sea diferente de 1
     for(long i=0;i<ecuaciones.length();i+=3){
         if(ecuaciones.at(i)!=1)
             ecuaciones.at(i+1)=multiplicativa(ecuaciones.at(i),ecuaciones.at(i+2))*ecuaciones.at(i+1);
@@ -76,7 +77,9 @@ ifstream archivo("datos.csv");
     for(long i=0;i<pi.length();i++){
        for(long j=i+1;j<pi.length();j++){
            if(euclides5(pi.at(i),pi.at(j))!= ZZ(1)){
-              cout<<"No hay solucion porque no son coprimos"<<endl;return;}
+              return ZZ(0);
+              //cout<<"No hay solucion porque no son coprimos"<<endl;return;
+              }
     }
             P*=pi.at(i);}
 
@@ -91,10 +94,11 @@ ifstream archivo("datos.csv");
 
     xo=mod(xo,P);
 
-    cout<<"X= "<<xo<<"+"<<P<<"k"<<endl;
+    //cout<<"X= "<<xo<<"+"<<P<<"k"<<endl;
+    return xo;
 }
 
 int main()
 {
-    Resto_Chino();
+    cout<<Resto_Chino();
 }

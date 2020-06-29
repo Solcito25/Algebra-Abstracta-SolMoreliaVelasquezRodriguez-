@@ -7,7 +7,7 @@ using namespace NTL;
 RSA::RSA(int bits)///Constructor del receptor
 {
     ZZ p,q;
-    string name=to_string(bits),num;
+    /*string name=to_string(bits),num;
     name+="bits.txt";
     ifstream archivo(name);
     ZZ ra(aleatorio(ZZ(10)));
@@ -16,14 +16,14 @@ RSA::RSA(int bits)///Constructor del receptor
     p=conv<ZZ>(num.c_str());
     for(ZZ i(0);i<ra;i++)
         getline(archivo,num);
-    q=conv<ZZ>(num.c_str());
-   /*p=conv<ZZ>("11662549951736690528562247903094017441184471433847478450052971100435575108856049882366021952532653517875323501821154497065839230550825887848744087624709557");
-   q=conv<ZZ>("8895979267519823609767957800815683806539083214414144670056697494968030002688625975201313652099464586292075131685224785311257468037787729052559391212728093");*/
+    q=conv<ZZ>(num.c_str());*/
+   p=conv<ZZ>("174118268575358983901619946685150996800720038706044081910630854265267030940359583434922827755641548580193890466395654468368549914559881125547103974207784204491435612766573163981454273959219817324672183336083040187285661486699888737314333340082721564924637522913806560820827816601736653930970627470824990865501");
+   q=conv<ZZ>("176656997303223902095560256491598180971380732993768921435351520271158961476748001277698565063028402764520109441247809203999420881922890353371040260979842426191177375275250990256146658405602103682083965762652790303682088948560995391904786385195323037525430801172918718937212475657313929650740839978361468109599");
    n=p*q;
    ZZ pin((p-1)*(q-1));
    ZZ ee(1);
-   //e=32089;
-   do{
+   e=6353;
+   /*do{
         ee=aleatorio(pin);
    }
    while(euclides5(ee,pin)!= 1);
@@ -32,7 +32,7 @@ RSA::RSA(int bits)///Constructor del receptor
    cout<<"q"<<q<<endl;
    cout<<"n"<<n<<endl;
    cout<<"e"<<e<<endl;
-   cout<<"pin"<<pin<<endl;
+   cout<<"pin"<<pin<<endl;*/
 
    d=multiplicativa(e,pin);
    cout<<"d"<<d<<endl;
@@ -129,7 +129,7 @@ string RSA::descifrado(string mensaje){
     return fin;
 }
 
-void RSA::NumALetras(){
+/*void RSA::NumALetras(){
     ifstream file("descifrado.txt");
     string linea;
     while(getline(file,linea)){
@@ -137,4 +137,4 @@ void RSA::NumALetras(){
         cout<<alfabeto.at(pos);
     }
     file.close();
-}
+}*/

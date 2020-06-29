@@ -1,0 +1,12 @@
+
+Haciendo ping a 64.233.190.100 con 32 bytes de datos:
+Respuesta desde 64.233.190.100: bytes=32 tiempo=60ms TTL=105
+Respuesta desde 64.233.190.100: bytes=32 tiempo=59ms TTL=105
+Respuesta desde 64.233.190.100: bytes=32 tiempo=61ms TTL=105
+Respuesta desde 64.233.190.100: bytes=32 tiempo=57ms TTL=105
+
+Estad¡sticas de ping para 64.233.190.100:
+    Paquetes: enviados = 4, recibidos = 4, perdidos = 0
+    (0% perdidos),
+Tiempos aproximados de ida y vuelta en milisegundos:
+    M¡nimo = 57ms, M ximo = 61ms, Media = 59ms
