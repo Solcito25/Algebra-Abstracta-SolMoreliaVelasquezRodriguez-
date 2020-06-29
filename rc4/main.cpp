@@ -83,8 +83,8 @@ int main()
 /*
 #include<windows.h>
 int main(){
-system("ping 69.171.250.35 > info.txt");
-system("ping 64.233.190.100 > info2.txt");
+system("ping 69.171.250.35 > info.txt");///facebook
+system("ping 64.233.190.100 > info2.txt");/// google
 
 
 }
