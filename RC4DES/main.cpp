@@ -102,41 +102,72 @@ vector<int> RC4(){
     }
     return Or;
 }
-int main()
-{
+void DesplazamientoIzq(int num,vector<int>&c){
+    for(int i=0;i<num;i++){
+        c.push_back(c.at(i));
+    }
+    c.erase(c.begin(),c.begin()+num);
+}
+void DesplazamientoDer(int num,vector<int>&d){
+    for(int i=d.size()-num;i<d.size();i++){
+        d.insert(d.begin(),d.at(i));
+    }
+    cout<<"dentro de funcion"<<endl;
+    for(int m=0;m<d.size();m++)
+        cout<<d[m]<<" ";
+    d.erase(d.end()-num,d.end());
+}
+vector<int>DES(int bits){
+    vector<int>Kfin;
     vector<int>K=RC4();
-    for(int m=0;m<K.size();m++)
-    cout<<K[m]<<" ";
-    cout<<endl;
     int PC_1[56]={57,49,41,33,25,17,9,1,58,50,42,34,26,18,10,2,59,51,43,35,27,19,11,3,60,52,44,36,63,55,47,39,31,23,15,7,62,54,46,38,30,22,14,6,61,53,45,37,29,21,13,5,28,20,12,4};
     int PC_2[48]={14,17,11,24,1,5,3,28,15,6,21,10,23,19,12,4,26,8,16,7,27,20,13,2,41,52,31,37,47,55,30,40,51,45,33,48,44,49,39,56,34,53,46,42,50,36,29,32};
+    int rot[]={1,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1,1,1,2,2,2,2};
     vector<int>Ki;
+    vector<int>c;
+    vector<int>d;
     for(int i=0;i<56;i++){
-        Ki.push_back(K.at(PC_1[i]));
+        Ki.push_back(K.at(PC_1[i]-1));
     }
-    for(int m=0;m<Ki.size();m++)
-    cout<<Ki[m]<<" ";
-///Impresion de los vectores :D
-    /*cout<<"miss aqui esta le vector :D"<<endl;
-    for(int i=0;i<k.size();i++)
-        cout<<k[i]<<" ";
-    cout<<endl;
-    for(int i=0;i<s.size();i++)
-        cout<<s[i]<<" ";
-    cout<<endl<<"CAMBIOS"<<endl;
-    for(int i=0;i<s.size();i++)
-        cout<<s[i]<<" ";
-    for(int m=0;m<Or.size();m++)
-    cout<<Or[m]<<" "<<endl;
-    for(int m=0;m<Ori.size();m++)
-    cout<<Ori[m]<<" ";
-    cout<<endl;
-    for(int m=0;m<Ori.size();m++)
-    cout<<Ori[m];
-    cout<<endl;*/
+    for(int n=0;n<28;n++)
+        c.push_back(Ki[n]);
+    for(int n=28;n<56;n++)
+        d.push_back(Ki[n]);
+    int i=0;
+    int vueltas=(bits/48)+1;
+    while(i<vueltas){
+        vector<int>cd;
+        vector<int>fin;
+        DesplazamientoIzq(rot[i],c);
+        DesplazamientoIzq(rot[i],d);
+        cd.insert(cd.begin(),c.begin(),c.end());
+        cd.insert(cd.end(),d.begin(),d.end());
+        for(int z=0;z<48;z++){
+            fin.push_back(cd.at(PC_2[z]-1));
+        }
+        Kfin.insert(Kfin.end(),fin.begin(),fin.end());
+        i++;
+    }
+    int quit=bits-(vueltas*48);
+    Kfin.resize(bits);
+    if(!Kfin[0]) Kfin[0]=1;
+    if(!Kfin[Kfin.size()-1]) Kfin[Kfin.size()-1]=1;
+    return Kfin;
+}
+ZZ NumeroAleatorio(int bits){
+    vector<int>K=DES(bits);
+    ZZ num(0);ZZ i(1);
+    for(vector<int>::reverse_iterator it=K.rbegin();it!=K.rend();++it){
+        if(*it)
+            num+=i;
+        i<<=1;
+    }
+    return num;
+}
+int main()
+{
 
-
-
+        NumeroAleatorio(1024);
     return 0;
 }
 /*
