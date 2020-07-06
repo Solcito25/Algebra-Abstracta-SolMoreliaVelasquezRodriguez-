@@ -170,14 +170,4 @@ int main()
         NumeroAleatorio(1024);
     return 0;
 }
-/*
-#include<windows.h>
-int main(){
-system("ping 69.171.250.35 > info.txt");///facebook
-system("ping 64.233.190.100 > info2.txt");/// google
-}
 
-al.push_back((long unsigned)(GetCPULoad()*10000000));
-for(int i=0;i<al.size();i++){
-        cout<<al[i]<<endl;
-*/
