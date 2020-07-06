@@ -108,15 +108,6 @@ void DesplazamientoIzq(int num,vector<int>&c){
     }
     c.erase(c.begin(),c.begin()+num);
 }
-void DesplazamientoDer(int num,vector<int>&d){
-    for(int i=d.size()-num;i<d.size();i++){
-        d.insert(d.begin(),d.at(i));
-    }
-    cout<<"dentro de funcion"<<endl;
-    for(int m=0;m<d.size();m++)
-        cout<<d[m]<<" ";
-    d.erase(d.end()-num,d.end());
-}
 vector<int>DES(int bits){
     vector<int>Kfin;
     vector<int>K=RC4();
