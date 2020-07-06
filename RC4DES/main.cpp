@@ -1,9 +1,11 @@
 #include <iostream>
+#include <bits/stdc++.h>
 #define _WIN32_WINNT 0x0501
 #include <Windows.h>
 #include <stdio.h>
 #include <vector>
 #include <string>
+#include <chrono>
 #include <psapi.h>
 #include <bitset>
 #include<NTL/ZZ.h>
@@ -157,8 +159,19 @@ ZZ NumeroAleatorio(int bits){
 }
 int main()
 {
+    auto start = chrono::high_resolution_clock::now();
+    ios_base::sync_with_stdio(false);
+    ZZ a(NumeroAleatorio(128));
+    auto end = chrono::high_resolution_clock::now();
+    cout<<a;
+    double time_taken =
+      chrono::duration_cast<chrono::nanoseconds>(end - start).count();
 
-        NumeroAleatorio(1024);
+    time_taken *= 1e-9;
+
+    cout << "Time taken by program is : " << fixed
+         << time_taken;
+    cout << " sec" << endl;
     return 0;
 }
 
