@@ -8,19 +8,19 @@ using namespace NTL;
 RSA::RSA(int bits)///Constructor del receptor
 {
     //ZZ p,q;
-    //p=findProbablyPrimeClosest(bits);
-    //q=findProbablyPrimeClosest(bits);
-   p=conv<ZZ>("141435257545301438250412064134471187802631682855068281935597881626618509578670490197497124974492212725638183174309841202854496434932711318178370145103657877988072135717908745716633250829195393749616690492117171477475091270819449530713861839066025679717807767719750437879880931385063596256882148537265260242941");
-   q=conv<ZZ>("160881796038177215848663852830936019953296496293559472377087350881890686986363708560349040149326004342754536988240498601570426998737558255612616504124781737697837074277022430858940485426498155443552229624898389396697140734511255782247921754292228734293251798285061257033914651651108655614304119591080746196017");
+    p=findProbablyPrimeClosest(bits);
+    q=findProbablyPrimeClosest(bits);
+   /*p=conv<ZZ>("");
+   q=conv<ZZ>("");*/
    n=p*q;
    ZZ pin((p-1)*(q-1));
    ZZ ee(1);
-   e=conv<ZZ>("160881796038177215848663852830936019953296496293559472377087350881890686986363708560349040149326004342754536988240498601570426998737558255612616504124781737697837074277022430858940485426498155443552229624898389396697140734511255782247921754292228734293251798285061257033914651651108655614304119591080746195717");
-   /*do{
+   //e=conv<ZZ>("");
+   do{
         ee=NumeroAleatorio(bits);
    }
    while(euclides5(ee,pin)!= 1);
-   e=ee;*/
+   e=ee;
    cout<<"p "<<p<<endl;
    cout<<"q "<<q<<endl;
    cout<<"n "<<n<<endl;
@@ -39,11 +39,14 @@ RSA::RSA(ZZ E,ZZ N){///Constructor del emisor
     n=N;
     e=E;
 }
-RSA::~RSA()
-{
-    //dtor
+
+string RSA::completarCeros(string mensaje, ZZ nr){
+    int digit =ZZtoStr(nr).size()-1;
+    int c = modINT(mensaje.size(),digit);
+    string cero(digit-c,'0');
+    return cero+mensaje;
 }
-string RSA::cifrado(string mensaje){
+string RSA:: bloques(string mensaje){
     int di=(to_string(alfabeto.size())).size();
     string alfa;string extra="22";
     string s=ZZtoStr(n);int digitos=s.size()-1;
@@ -61,11 +64,16 @@ string RSA::cifrado(string mensaje){
     while(mod(ZZ(alfa.size()),ZZ(digitos))!=ZZ(0)){
         alfa+=extra;
     }
-    ofstream file("cifrado.txt");///guarda mensaje cifrado
+    return alfa;
+}
+string RSA::cifrado(string mensaje,ZZ nr,ZZ er){
+    //string bloque=bloques(mensaje);
+
+    string s=ZZtoStr(nr);int digitos=s.size()-1;
     string fin;
-    for(int i=0;i<alfa.size();i+=digitos){
-        ZZ num(conv<ZZ>(alfa.substr(i,digitos).c_str()));
-        num=exponencial(num,e,n);
+    for(int i=0;i<mensaje.size();i+=digitos){
+        ZZ num(conv<ZZ>(mensaje.substr(i,digitos).c_str()));
+        num=exponencial(num,er,nr);
         if(ZZtoStr(num).size()<digitos+1){
                 string ceros(digitos+1-ZZtoStr(num).size(),'0');
                 ceros+=ZZtoStr(num);
@@ -73,8 +81,9 @@ string RSA::cifrado(string mensaje){
         }
         else
             fin+=ZZtoStr(num);
+
     }
-    file<<fin;
+
    return fin;
 }
 
@@ -85,6 +94,33 @@ stringstream buffer;
 return s;
 }
 
+string RSA::cifroConD(string msg){
+
+    string s=ZZtoStr(n);int digitos=s.size()-1;
+    string fin;
+    for(int i=0;i<msg.size();i+=digitos){
+        ZZ num(conv<ZZ>(msg.substr(i,digitos).c_str()));
+        num=exponencial(num,d,n);
+        if(ZZtoStr(num).size()<digitos+1){
+                string ceros(digitos+1-ZZtoStr(num).size(),'0');
+                ceros+=ZZtoStr(num);
+                fin+=ceros;
+        }
+        else
+            fin+=ZZtoStr(num);
+    }
+
+    return fin;
+}
+
+string RSA::firmarCifrar(string msgl,ZZ nr,ZZ er){
+    ofstream file("cifrado.txt");///guarda mensaje cifrado
+    string rubrica=cifroConD(bloques(msgl));
+    rubrica=completarCeros(rubrica,nr);
+    string ciffir=cifrado(rubrica,nr,er);
+    file<<ciffir;
+    return ciffir;
+}
 ZZ RSA::TRC(ZZ num){
     /// dp = mod(d,p-1) dq = mod(d,q-1)
     /// Clase de equivalencia de num en p mod(num,p)
@@ -112,14 +148,43 @@ string RSA::descifrado(string mensaje){
         else
             st+=ZZtoStr(num);
     }
-    string fin;
-    for(int i=0;i<st.size();i+=di){
-        int pos=stoi(st.substr(i,di));
-        fin+=alfabeto.at(pos);
+
+
+    return st;
+}
+string RSA::descifroConE(string mensaje, ZZ nr, ZZ er){
+    int a= modINT(mensaje.size(),ZZtoStr(nr).size());
+    mensaje = mensaje.substr(a);
+    cout<<mensaje<<endl;
+    int di=(to_string(alfabeto.size())).size();
+    string s=ZZtoStr(nr),st;int digitos=s.size();
+    for(int i=0;i<mensaje.size();i+=digitos){
+        ZZ num(conv<ZZ>(mensaje.substr(i,digitos).c_str()));
+        num=exponencial(num,er,nr);
+        if(ZZtoStr(num).size()<digitos-1){
+                string ceros(digitos-1-ZZtoStr(num).size(),'0');
+                ceros+=ZZtoStr(num);
+                st+=ceros;
+        }
+        else
+            st+=ZZtoStr(num);
     }
+
+    string letters;
+    for(int i=0;i<st.size();i+=di){
+        letters+=alfabeto.at(stoi(st.substr(i,di)));
+    }
+
+    return letters;
+    //return salida;
+}
+
+string RSA::DescifrarFirma(string msgn,ZZ nr, ZZ er){
+    string des=descifrado(msgn);
+    string desc=descifroConE(des,nr,er);
     ofstream archivo("descifrado.txt");///Mensaje descifrado
-        archivo<<fin;
-    return fin;
+        archivo<<desc;
+    return desc;
 }
 
 /*void RSA::NumALetras(){
