@@ -1,3 +1,4 @@
+#include "aleatorio.h"
 #include <iostream>
 #include <bits/stdc++.h>
 #define _WIN32_WINNT 0x0501
@@ -157,21 +158,3 @@ ZZ NumeroAleatorio(int bits){
     }
     return num;
 }
-int main()
-{
-    auto start = chrono::high_resolution_clock::now();
-    ios_base::sync_with_stdio(false);
-    ZZ a(NumeroAleatorio(1024));
-    auto end = chrono::high_resolution_clock::now();
-    cout<<a;
-    double time_taken =
-      chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-
-    time_taken *= 1e-9;
-
-    cout << "Time taken by program is : " << fixed
-         << time_taken;
-    cout << " sec" << endl;
-    return 0;
-}
-
